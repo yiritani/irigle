@@ -4,7 +4,7 @@ const nextConfig = {
         appDir: true,
     },
     images: {
-        domains: ['upload.wikimedia.org'],
+        domains: ['upload.wikimedia.org', 'lh3.googleusercontent.com'],
     }
 }
 

@@ -15,14 +15,14 @@ export function HomeSearch(props: Props) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim()) return;
-    router.push(`/search?term=${input}`);
+    router.push(`/search/web?term=${input}`);
   }
 
   const randomSearch = async () => {
     setRandomSearchLoading(true);
     try {
       const randomWord = await fetch('https://random-word-api.herokuapp.com/word')
-      router.push(`/search?term=${randomWord}`);
+      router.push(`/search/web?term=${randomWord}`);
     } finally {
       setRandomSearchLoading(false);
     }

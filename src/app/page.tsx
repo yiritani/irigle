@@ -5,6 +5,7 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <>
+      <link rel="icon" href="favicon.ico" />
       <HomeHeader />
 
       <div className='flex flex-col items-center mt-24 justify-center py-2'>

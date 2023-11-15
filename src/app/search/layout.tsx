@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
-import Footer from "@/components/Footer";
+import SearchHeader from "@/components/Search/SearchHeader";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,19 +9,15 @@ export const metadata: Metadata = {
   description: 'Individual development and design',
 }
 
-export default function RootLayout({
+export default function SearchLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-
-        {children}
-        <Footer />
-
-      </body>
-    </html>
+    <div>
+      <SearchHeader />
+      {children}
+    </div>
   )
 }
