@@ -4,8 +4,8 @@ import React from 'react';
 import {AiOutlineCamera, AiOutlineSearch} from "react-icons/ai";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 
-type Props = {}
-function SearchHeaderOptions(props: Props) {
+
+function SearchHeaderOptions() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

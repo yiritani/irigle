@@ -1,22 +1,23 @@
-import React from 'react';
-import Link from 'next/link';
-import WebSearchResult from "@/components/Result/WebSearchResult";
+import React from 'react'
+import Link from 'next/link'
+import WebSearchResult from '@/components/Result/WebSearchResult'
 
-type Props = {
-  params: Record<string, unknown>;
+interface Props {
+  params: Record<string, unknown>
   searchParams: {
-    searchTerm: string;
-  };}
+    searchTerm: string
+  }
+}
 
-export default async function WebSearch(props: Props) {
-  const {searchParams} = props;
+export default async function WebSearch (props: Props) {
+  const { searchParams } = props
   const response = await fetch(`
   https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}
-  `);
-  if(!response.ok) throw new Error('API Error');
-  const searchResult = await response.json();
-  const results = searchResult.items;
-  const searchInformation = searchResult.searchInformation;
+  `)
+  if (!response.ok) throw new Error('API Error')
+  const searchResult = await response.json()
+  const results = searchResult.items
+  const searchInformation = searchResult.searchInformation
   if (!results) {
     return (
       <div className={'flex flex-col justify-center items-center pt-10'}>

@@ -10,7 +10,7 @@ export type SearchResult = {
   formattedUrl: string;
   htmlFormattedUrl: string;
   pagemap: {
-    metatags: any[]; // 不明確かつ使わないので
+    metatags: never[]; // 不明確かつ使わないので
   };
 };
 

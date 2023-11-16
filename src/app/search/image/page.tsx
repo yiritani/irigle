@@ -1,9 +1,6 @@
 import React from 'react';
 
-type Props = {
-
-}
-export default function ImageSearch(props: Props) {
+export default function ImageSearch() {
   return (
     <div>ImageSearchPage</div>
   );
