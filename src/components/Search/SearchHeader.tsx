@@ -1,39 +1,34 @@
-import React from 'react';
-import Link from 'next/link';
 import Image from "next/image";
-import SearchBox from '@/components/Search/SearchBox';
+import Link from "next/link";
+import SearchBox from "./SearchBox";
 import { RiSettings3Line } from "react-icons/ri";
 import { TbGridDots } from "react-icons/tb";
-import SearchHeaderOptions from "@/components/Search/SearchHeaderOptions";
+import SearchHeaderOptions from "./SearchHeaderOptions";
 
-type Props = {}
-function SearchHeader(props: Props) {
+export default function SearchHeader() {
   return (
-    <header>
-      <div className={'flex w-full p-6 items-center justify-between'}>
-        <Link href='/'>
+    <header className="sticky top-0 bg-white">
+      <div className="flex w-full p-6 items-center justify-between">
+        <Link href={"/"}>
           <Image
-            src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png'
-            alt={'headerLogo'}
-            width={120}
-            height={40}
+            width="120"
+            height="40"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/640px-Google_2015_logo.svg.png"
+            alt={'logo'}
           />
         </Link>
-
-        <div className={'flex space-x-4 items-center justify-between'}>
+        <div className="flex-1">
           <SearchBox />
         </div>
-        <div className="flex ml-auto space-x-4 items-center justify-between hidden md:inline-flex">
-          <RiSettings3Line class="header-icon"/>
-          <TbGridDots class="header-icon"/>
-          <button className="bg-blue-500 text-white px-6 py-2 rounded-md hover:brightness-105 hover:shadow-md transition-shadow mt-4">
-              Sign In
-          </button>
+        <div className="hidden md:inline-flex space-x-2 ">
+          <RiSettings3Line className="header-icon" />
+          <TbGridDots className="header-icon" />
         </div>
+        <button className="bg-blue-500 text-white px-6 py-2 font-medium rounded-md hover:brightness-105 hover:shadow-md transition-all ml-2">
+          Sign in
+        </button>
       </div>
       <SearchHeaderOptions />
     </header>
   );
 }
-
-export default SearchHeader;

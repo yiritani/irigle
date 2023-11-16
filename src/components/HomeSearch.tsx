@@ -3,7 +3,6 @@ import React from 'react';
 import {useRouter} from 'next/navigation';
 import { FaSearch } from "react-icons/fa";
 import { FaMicrophone } from "react-icons/fa6";
-import { routeModule } from 'next/dist/build/templates/app-page';
 
 type Props = {
 };
@@ -15,14 +14,15 @@ export function HomeSearch(props: Props) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim()) return;
-    router.push(`/search/web?term=${input}`);
+    router.push(`/search/web?searchTerm=${input}`);
   }
 
   const randomSearch = async () => {
     setRandomSearchLoading(true);
     try {
       const randomWord = await fetch('https://random-word-api.herokuapp.com/word')
-      router.push(`/search/web?term=${randomWord}`);
+      const searchTerm = await randomWord.json();
+      router.push(`/search/web?searchTerm=${searchTerm}`);
     } finally {
       setRandomSearchLoading(false);
     }
@@ -46,7 +46,6 @@ export function HomeSearch(props: Props) {
 
         </div>
       </form>
-
     </>
   );
 };
