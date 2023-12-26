@@ -19,7 +19,6 @@ export default async function ImageSearch (props: Props) {
 
   if (!response.ok) throw new Error('API Error')
   const searchResult = await response.json()
-  console.log(searchResult)
   const results = searchResult.items
   const searchInformation = searchResult.searchInformation
   if (!results) {
@@ -38,7 +37,7 @@ export default async function ImageSearch (props: Props) {
 
   return (
     <>
-      {results && <ImageSearchResult searchInformation={searchInformation} results={results} />}
+      {results && <ImageSearchResult results={results} />}
     </>
   );
 }
